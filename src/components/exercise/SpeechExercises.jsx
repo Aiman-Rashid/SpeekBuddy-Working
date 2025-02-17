@@ -11,14 +11,13 @@ const SpeechExercises = () => {
         <div className="col-12 col-md-6 col-lg-7 mb-4">
           <LevelCard
             title="Level 1: Introduction to Speech Sounds"
-            link="/VowelExercise"
             isLocked={false}
             topics={[
-              { name: "Learning Vowel Sounds", icon: "📢" },
-              { name: "Simple Consonant Sounds", icon: "🔤" },
-              { name: "Basic Mouth & Tongue Movements", icon: "👅" },
-              { name: "Matching Sounds with Pictures", icon: "🖼️" },
-              { name: "Repeating Simple Words", icon: "🎙️" },
+              { name: "Learning Vowel Sounds", icon: "📢", link: "/VowelSounds" },
+              { name: "Simple Consonant Sounds", icon: "🔤", link: "/ConsonantSounds" },
+              { name: "Basic Mouth & Tongue Movements", icon: "👅", link: "/MouthMovements" },
+              { name: "Matching Sounds with Pictures", icon: "🖼️", link: "/MatchingSounds" },
+              { name: "Repeating Simple Words", icon: "🎙️", link: "/RepeatingWords" },
             ]}
           />
         </div>

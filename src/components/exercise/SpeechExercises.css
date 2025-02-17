@@ -22,6 +22,18 @@
   border-radius: 10px; /* Rounded corners for the container */ 
   min-height: 100vh;
 }
+.ExeCard-container{
+  max-width: 100%;
+  padding: 20px;
+  background-image: url('../../assets/img/bgVowelEX.png');
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  color: white; /* Change text color for better contrast */
+  font-family: 'Roboto', sans-serif; /* Use a modern, readable font */
+  border-radius: 10px; /* Rounded corners for the container */ 
+  min-height: 100vh;
+}
 
 .container-SpeechExe h1 {
   font-size: 36px;

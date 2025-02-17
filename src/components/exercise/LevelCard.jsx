@@ -1,37 +1,36 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
+import { ExpandMore, ExpandLess } from "@mui/icons-material"; 
+import { Link } from "react-router-dom";
 
-const LevelCard = ({ title, link, topics, isLocked }) => {
+const LevelCard = ({ title,  topics, isLocked }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const toggleDropdown = () => {
+    if (!isLocked) {
+      setIsOpen(!isOpen);
+    }
+  }
 
   return (
     <div className={`level-card ${isLocked ? "locked" : "unlocked"}`}>
-      <h2>{title} {isLocked && "🔒"}</h2>
-
-      <Link
-        to={isLocked ? "#" : link}
-        className={`button btn ${isLocked ? "btn-secondary disabled" : "btn-primary"}`}
-        aria-disabled={isLocked}
-      >
-        {isLocked ? "Locked" : "Start Level"}
-      </Link>
+      <h2>{title}  {isLocked && "🔒"}</h2>
 
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`dropdown-toggle ${isOpen ? "rotate-180" : ""}`}
-        aria-expanded={isOpen}
+        className={`button btn ${isLocked ? "btn-secondary disabled" : "btn-primary"}`}
+        onClick={toggleDropdown}
+        disabled={isLocked}
       >
-        ▼
+        {isLocked ? "Locked" : "Start Level"}
+        {isOpen ? <ExpandLess className="ms-2" /> : <ExpandMore className="ms-2" />}
       </button>
 
       {isOpen && (
         <ul className="submenu">
           {topics.map((topic, index) => (
-            <li key={index} className="flex justify-between">
-              <span className="topic-name">
+            <li key={index} className="flex justify-between" >
+              <Link to={topic.link} className="topic-name">
                 <strong>Topic {index + 1}:</strong> {topic.name}
-              </span>
+              </Link>
               <span className="topic-icon">{topic.icon}</span>
             </li>
           ))}
